@@ -1,0 +1,12 @@
+version: '3'
+services:
+  folder-backup:
+    build: '.'
+    environment:
+      - BACKUP_DIR=/backups
+      - TARGET_DIR=/target
+      - CRON_TIME=* * * * *
+      - MAX_BACKUPS=10
+    volumes:
+      - './backups:/backups'
+      - './target:/target'
